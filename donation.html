@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โครงการเพื่อเด็กบนภู เพื่อนครูบนดอย</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="donation.css">
+</head>
+<style>
+
+/* 1. Global Reset & Setup (คงเดิม) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Anuphan', 'Sarabun', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: #f8fafc; /* ปรับพื้นหลังให้ดูสว่างสะอาดตาขึ้น */
+    color: #1e293b;
+    line-height: 1.6;
+    font-size: 18px;
+    font-family: 'Anuphan', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span, li, button, input {
+    font-family: 'Anuphan', sans-serif !important;
+}
+
+i[class^="fa-"], i[class*=" fa-"], .material-icons, .fa {
+    font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", "FontAwesome" !important;
+    font-weight: 900;
+}
+
+.container {
+    max-width: 1300px; 
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+
+
+
+/* 2. แถบเมนู (คงเดิมตามต้นฉบับของคุณ) */
+nav {
+    background: rgba(255, 255, 255, 0.479);
+    backdrop-filter: blur(10px);
+    height: 80px; 
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.nav-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.nav-left-side {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo img.logo-img {
+    height: 52px !important;
+    width: auto !important;
+    display: block !important;
+    object-fit: contain;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none !important;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    text-decoration: none !important;
+    color: #64748b;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #19729c;
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #19729c;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.auth-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8fafc;
+    padding: 5px 5px 5px 18px;
+    border-radius: 50px;
+    border: 1px solid #edf2f7;
+}
+
+.auth-menu a {
+    text-decoration: none !important;
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.auth-menu .user-link:hover {
+    color: #19729c;
+}
+
+.auth-menu .btn-logout {
+    background: #fee2e2;
+    color: #ef4444 !important;
+    padding: 6px 15px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.auth-menu .btn-logout:hover {
+    background: #ef4444;
+    color: #ffffff !important;
+}
+
+.divider {
+    color: #e2e8f0;
+    font-weight: 300;
+}
+ปิดส่วนหัว
+
+
+
+
+
+
+body {
+    font-family: 'Anuphan', sans-serif;
+    background-color: #FAFAFA; /* สีขาวนวลๆ */
+}
+
+/* ส่วนหัวที่ดูคลีน */
+.hero {
+    background: #fff;
+    padding: 100px 20px 60px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    background: linear-gradient(to right, #FF8E53, #FE6B8B);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block; /* ช่วยให้พื้นหลังคลุมตัวหนังสือได้แม่นยำขึ้น */
+}
+
+/* ปรับ Card ให้เหมือนแอปมือถือ */
+.card {
+    background: #ffffff;
+    border-radius: 40px; /* โค้งมนแบบทันสมัย */
+    padding: 30px;
+    border: none;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03); /* เงาบางๆ แทบมองไม่เห็นแต่ดูมีมิติ */
+}
+
+/* รูปภาพแบบซ้อนกัน (Overlapping Image) */
+.card-image {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* ให้ไถนิ้วดูรูปได้ */
+    padding-bottom: 20px;
+    scrollbar-width: none;
+}
+
+.card-image img {
+    width: 140px;
+    height: 180px;
+    border-radius: 25px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* รายการสิ่งของแบบชิคๆ */
+.tag {
+    background: #F3F4F6;
+    color: #4B5563;
+    padding: 8px 20px;
+    border-radius: 15px; /* ทรงแคปซูล */
+    font-size: 0.95rem;
+    display: inline-block;
+    margin: 4px;
+    transition: 0.3s;
+}
+
+.tag:hover {
+    background: #FF8E53;
+    color: white;
+    transform: scale(1.05);
+}
+
+
+
+
+/* 1. Global Setup & Variables - Refined for 2026 */
+:root {
+  --primary: #1a3a3a;
+  --primary-light: #2d5a43;
+  --secondary: #c9a227; 
+  --accent: #e67e22; 
+  --white: #ffffff;
+  --bg-soft: #f4f7f6; /* นวลตาขึ้น */
+  --text-dark: #1e272e;
+  --text-muted: #576574;
+  
+  --shadow-premium: 0 20px 50px -12px rgba(26, 58, 58, 0.08);
+  --shadow-hover: 0 40px 80px -15px rgba(26, 58, 58, 0.15);
+  --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-lg: 40px;
+  --radius-md: 24px;
+}
+
+body {
+  font-family: 'Anuphan', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-soft);
+  color: var(--text-dark);
+}
+
+.donation-content {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+
+/* 2. Hero Section - Elevated Glassmorphism */
+.donation-hero {
+  text-align: center;
+  padding: 100px 40px;
+  background: radial-gradient(circle at top right, rgba(201,162,39,0.1), transparent), 
+              radial-gradient(circle at bottom left, rgba(45,90,67,0.15), transparent),
+              var(--white);
+  border-radius: var(--radius-lg);
+  margin-bottom: 100px;
+  box-shadow: var(--shadow-premium);
+  border: 1px solid rgba(255,255,255,0.8);
+}
+
+/* 2. Hero Section - กลับมาใช้สีเดิมตามระบบตัวแปร */
+.hero-sub {
+  color: var(--secondary); /* กลับมาใช้สีทอง/น้ำตาลเดิม */
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.donation-hero h1 {
+  font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+  color: var(--primary);   /* กลับมาใช้สีเขียวเข้มเดิม */
+  line-height: 1.3;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.hero-accent {
+  font-size: 1.1rem;
+  color: var(--text-muted); /* กลับมาใช้สีเทาเดิม */
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* 3. Section Headers - กลับมาใช้สีเดิมตามระบบตัวแปร */
+.section-header {
+  margin-bottom: 50px;
+  border-left: 6px solid var(--secondary); /* กลับมาใช้สีทอง/น้ำตาลเดิม */
+  padding-left: 24px;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: var(--primary);   /* กลับมาใช้สีเขียวเข้มเดิม */
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.section-desc {
+  color: var(--text-muted); /* กลับมาใช้สีเทาเดิม */
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+
+
+
+
+/* 4. Card Grid & Donation Cards - Refined Bento Style */
+.donation-section { 
+  margin-bottom: 80px; 
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 400px)); /* ปรับ auto-fit และกำหนด max ของการ์ด */
+  gap: 25px;
+  justify-content: center; /* จัดกลุ่มการ์ดให้อยู่กึ่งกลางหน้าจอ */
+  max-width: 1200px;        /* ป้องกันไม่ให้แผ่กว้างเกินไปในจอใหญ่ */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* สำหรับส่วนบริโภคที่มี 2 การ์ด */
+.card-grid.grid-center {
+  justify-content: center;
+  /* ปรับระยะห่างระหว่าง 2 การ์ดให้กว้างขึ้น */
+  gap: 60px; 
+  
+  /* ใช้ auto-fit และคุมขนาดการ์ดไม่ให้ขยายจนเสียรูป */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 420px)); 
+  
+  /* จำกัดความกว้างรวมของกลุ่มการ์ด 2 ใบเพื่อให้ระยะห่างดูลงตัว */
+  max-width: 1000px; 
+  margin: 0 auto; 
+}
+
+/* ส่วนอุปโภค (ปกติ) คงเดิม */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px; /* ส่วนปกติห่าง 25px ตามเดิม */
+}
+
+.donation-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 24px; /* ปรับให้โค้งมนเท่ากับส่วนอื่น */
+  border: 1px solid rgba(58, 90, 64, 0.05); /* ใช้สีเขียวจางๆ แทนดำ */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.donation-card:hover {
+  transform: translateY(-8px); /* ลดความแรงของการกระโดดลงให้ดูแพง */
+  box-shadow: 0 20px 40px rgba(58, 90, 64, 0.08);
+  border-color: var(--primary-light);
+}
+
+/* ปรับเฉพาะหัวข้อให้อยู่ตรงกลาง */
+.donation-card h3 {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  
+  /* เพิ่มส่วนนี้ */
+  text-align: center;      /* จัดตัวอักษรให้อยู่กลาง */
+  width: 100%;            /* มั่นใจว่าใช้พื้นที่เต็มความกว้าง */
+  display: block;         /* เปลี่ยนจาก relative เป็น block เพื่อให้ text-align ทำงานเต็มที่ */
+}
+
+/* เพิ่มเติม: หากต้องการให้เส้นคั่นใต้หัวข้อ (ถ้ามี) อยู่ตรงกลางด้วย */
+.donation-card h3::after {
+  content: "";
+  display: block;
+  width: 40px;            /* ความยาวของเส้นเล็กๆ ใต้ชื่อหัวข้อ */
+  height: 3px;
+  background: var(--accent-warm);
+  margin: 8px auto 0;     /* ใช้ auto ซ้ายขวาเพื่อจัดเส้นให้อยู่กลาง */
+  border-radius: 10px;
+}
+
+.card-desc {
+  font-size: 0.95rem;
+  color: #636e72;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  min-height: 3em;
+}
+
+.donation-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.donation-card ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(58, 90, 64, 0.05); /* เส้นคั่นสีเขียวอ่อน */
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2d3436;
+}
+
+/* ปรับเปลี่ยนลูกศรเป็นจุดกลมสไตล์ Minimal */
+.donation-card ul li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--accent-warm); /* ใช้สีน้ำตาลที่เราตั้งค่าไว้ */
+  border-radius: 50%;
+  margin-right: 12px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* Effect ตอน Hover ให้จุดกลมขยายตัวเล็กน้อย */
+.donation-card:hover ul li::before {
+  transform: scale(1.5);
+  background: var(--primary);
+  margin-right: 15px;
+}
+
+.card-note {
+  font-size: 0.85rem;
+  color: var(--accent-warm);
+  font-style: normal; /* เปลี่ยนจากตัวเอียงเป็นตัวปกติเพื่อให้ดู Modern */
+  font-weight: 500;
+  margin-top: auto;
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* เพิ่มเครื่องหมาย * หน้า Note ให้ดูน่ารักขึ้น */
+.card-note::before {
+  content: "*";
+  font-size: 1.2rem;
+}
+
+
+/* 5. Aside - Wide & Single Row Layout */
+.donation-note {
+  background: linear-gradient(135deg, #ffffff 0%, #fffafa 100%);
+  border-radius: 20px;
+  padding: 25px 40px; /* ลด Padding บน-ล่าง เพิ่มด้านข้าง */
+  margin: 40px auto;
+  max-width: 1100px; /* ขยายให้กว้างยาว */
+  width: 95%;
+  border: 1px solid rgba(235, 77, 75, 0.1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* แถบสีด้านบน */
+.donation-note::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 4px; 
+  background: linear-gradient(to right, #eb4d4b, #f0932b);
+}
+
+.donation-note h3 {
+  color: #2d3436;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.donation-note p {
+  color: #636e72;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+/* จัด List ให้เรียงเป็นแถวเดียว (Horizontal Row) */
+.donation-note ul {
+  list-style: none;
+  padding: 0;
+  display: flex; /* ใช้ flex แทน grid */
+  flex-direction: row; /* บังคับเรียงแถวเดียว */
+  flex-wrap: wrap; /* ให้ตกแถวได้ถ้าจอมือถือเล็กเกินไป */
+  justify-content: center; /* จัดให้อยู่กึ่งกลาง */
+  gap: 12px;
+  width: 100%;
+}
+
+.donation-note ul li {
+  background: #ffffff;
+  padding: 8px 16px; /* ลดขนาดช่องให้กระทัดรัด */
+  border-radius: 10px;
+  color: #2d3436;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  white-space: nowrap; /* ป้องกันข้อความตัดบรรทัดในช่องเล็ก */
+  transition: all 0.3s ease;
+}
+
+.donation-note ul li:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  border-color: rgba(235, 77, 75, 0.2);
+  box-shadow: 0 4px 10px rgba(235, 77, 75, 0.05);
+}
+
+.donation-note ul li::before {
+  content: "✕";
+  width: 16px;
+  height: 16px;
+  background: rgba(235, 77, 75, 0.1);
+  color: #eb4d4b;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+
+
+
+/* ส่วนบริจาค - ปรับโทนสีใหม่ให้ดูละมุนและแพงขึ้น */
+:root {
+  --primary: #3a5a40;       /* เขียวเข้มแบบป่าสน (ดูแพงและสงบกว่าเดิม) */
+  --primary-light: #588157; /* เขียวกลางสำหรับ Hover */
+  --primary-soft: #f1f5f2;  /* เขียวเทาอ่อนมากๆ สำหรับพื้นหลัง */
+  --accent-warm: #bc8a5f;   /* น้ำตาลอบอุ่น (Warm Earth Tone) */
+  --white: #ffffff;
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* 6. CTA Section - ปรับพื้นหลังให้ดูโปร่ง */
+.donation-cta {
+  background: var(--primary-soft);
+  padding: 50px 30px;
+  border-radius: 24px;
+  text-align: center;
+  margin-top: 40px;
+  border: 1px solid rgba(58, 90, 64, 0.08);
+  /* เพิ่ม Gradient จางๆ ให้พื้นหลังดูมีมิติ */
+  background: linear-gradient(to bottom, #f1f5f2, #ffffff);
+}
+
+.cta-text {
+  font-size: 1.2rem;
+  color: #2f3e33; /* สีเกือบดำแต่ติดเขียวเพื่อให้ดูซอฟต์ */
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.cta-text strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--accent-warm); 
+  margin-top: 6px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* ปุ่มแบบเรียบหรู (ลบลูกศรออกแล้ว) */
+.btn-primary {
+  background: var(--primary);
+  color: var(--white) !important;
+  padding: 14px 45px; /* เพิ่มความกว้างปุ่มให้ดูมั่นคง */
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: var(--transition);
+  /* เงาแบบ Soft Depth */
+  box-shadow: 0 10px 20px rgba(58, 90, 64, 0.15);
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--primary-light);
+  transform: translateY(-3px);
+  /* เงาฟุ้งขึ้นเวลา Hover */
+  box-shadow: 0 15px 30px rgba(58, 90, 64, 0.2);
+}
+
+/* ลบลูกศรออก (ลบส่วน ::after เดิม) */
+.btn-primary::after {
+  content: none !important;
+}
+
+
+
+
+
+
+/* --- [จบส่วนที่แก้ไข] --- */
+
+/* 8. Modern Footer (คงเดิมตามต้นฉบับของคุณ) */
+footer.contact {
+    background: #e9f2fc; 
+    padding: 60px 0 30px; 
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    color: #334155;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left-col h3 {
+    font-size: 0.95rem; 
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+footer.contact ul, 
+footer.contact li {
+    list-style: none !important;
+    list-style-type: none !important;
+    background-image: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-indent: 0 !important;
+}
+
+footer.contact .footer-left-col ul li {
+    margin-bottom: 12px !important;
+}
+
+footer.contact a {
+    text-decoration: none !important;
+    box-shadow: none !important;
+    color: #64748b;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+footer.contact a:hover {
+    color: #1e293b;
+}
+
+.contact-card {
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02); 
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 320px; 
+}
+
+.contact-card h3 {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center; 
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.contact-row i {
+    font-size: 0.9rem;
+    color: #64748b; 
+    width: 20px;
+    text-align: center;
+}
+
+.fa-facebook, .fa-facebook-f {
+    color: #64748b !important; 
+}
+
+.contact-row p {
+    font-size: 0.85rem; 
+    line-height: 1.4;
+    color: #64748b;
+    margin: 0;
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    padding: 25px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .hero { padding: 100px 0; }
+    .footer-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-left-col { margin-bottom: 30px; }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;700&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #274a83 0%, #1a1b66 100%);
+    --dark-blue: #1e293b;
+    --text-muted: #64748b;
+}
+
+.modern-footer {
+    background: #fff;
+    position: relative;
+    padding-top: 100px; /* ขยับหัวข้อลงมาหน่อยให้ดูบาลานซ์ */
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+}
+
+.footer-wave {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    line-height: 0;
+}
+.footer-wave .shape-fill { fill: #f1f5f9; }
+
+/* ขยาย container ให้กว้างขึ้นเพื่อสลัดเนื้อหาออกข้าง */
+.container-balanced {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer-header-center {
+    margin-bottom: 30px;
+}
+
+.brand-title {
+    font-size: 2rem; /* ปรับขนาดให้พอดี ไม่เทอะทะ */
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.brand-title span {
+    display: block;
+    color: var(--dark-blue);
+    -webkit-text-fill-color: var(--dark-blue);
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.brand-subtitle {
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 20px;
+    font-weight: 300;
+    font-size: 0.95rem;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #f1f5f9;
+    margin: 20px 0 40px;
+}
+
+/* หัวใจของการจัดสมดุลออกข้าง */
+.footer-content-spread {
+    display: flex;
+    justify-content: space-between; /* ผลักซ้าย-ขวา */
+    align-items: flex-start;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-col h3 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: var(--dark-blue);
+    font-weight: 500;
+}
+
+/* ปรับเมนูให้เรียงแนวนอน (สลัดออกข้าง) */
+.horizontal-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* หรือเปลี่ยนเป็น flex-start ถ้าอยากให้ชิดซ้ายสุด */
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.horizontal-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 300;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.horizontal-links a:hover { color: #3b82f6; }
+
+/* ข้อมูลติดต่อแบบกระจายตัว */
+.contact-spread {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    max-width: 400px;
+}
+
+.contact-item i { color: #3b82f6; flex-shrink: 0; }
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    width: 36px;
+    height: 36px;
+    background: #f1f5f9;
+    color: var(--dark-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: var(--primary-gradient);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    padding: 25px 0;
+    border-top: 1px solid #f1f5f9;
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+
+/* Responsive: เมื่อจอกลาง/เล็ก ให้กลับมาซ้อนกัน */
+@media (max-width: 900px) {
+    .footer-content-spread {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .horizontal-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+</style>
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โครงการเพื่อเด็กบนภู เพื่อนครูบนดอย</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@200;300;400;500;600;700&family=Kanit:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style-menu.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<nav>
+    <div class="container nav-con">
+        <div class="nav-left-side">
+            <div class="logo">
+                <a href="index.php">
+                    <img src="img/01.jpg" alt="โลโก้โครงการ" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index2.php">หน้าแรก</a></li>
+                <li><a href="donate.php">บริจาคสิ่งของ</a></li>
+                <li><a href="events.php">เข้าร่วมกิจกรรม</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right-side">
+            <div class="auth-menu">
+                <a href="login.php" class="btn-login">เข้าสู่ระบบ</a>
+                <span class="divider">|</span>
+                <a href="history.php" class="user-link">ประวัติสมาชิก</a>
+                <a href="user_profile.php" class="user-link">ประวัติการเข้าร่วมกิจกรรม</a>
+                <a href="logout.php" class="btn-logout">ออกจากระบบ</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<main class="donation-content">
+  <section class="donation-hero">
+    <span class="hero-sub">Small Acts, Big Impacts</span>
+    <h1>สิ่งของเล็กๆ ของคุณ<br>คือโอกาสที่ยิ่งใหญ่</h1>
+    <p class="hero-accent">
+      ร่วมส่งต่อคุณภาพชีวิตที่ดีขึ้น ผ่านการแบ่งปันสิ่งของจำเป็นให้กับชุมชนบนดอย
+    </p>
+  </section>
+
+
+
+  <section class="donation-section">
+    <header class="section-header">
+      <h2>หมวดบริโภค</h2>
+      <p class="section-desc">
+        "ส่งต่อความอิ่มท้องและโภชนาการที่ดี เพื่อคุณภาพชีวิตที่สมบูรณ์ของครอบครัวในพื้นที่ขาดแคลน"
+      </p>
+    </header>
+
+   <div class="card-grid grid-center">
+      <article class="donation-card">
+        <h3>ข้าวสาร & อาหารแห้ง</h3>
+        <p class="card-desc">
+          อาหารหลักที่สามารถเก็บรักษาได้นานและนำไปประกอบอาหารได้หลากหลาย
+        </p>
+        <ul>
+          <li>ข้าวสาร / เส้นหมี่แห้ง</li>
+          <li>ปลากระป๋อง / บะหมี่กึ่งสำเร็จรูป</li>
+          <li>เครื่องปรุงรส / น้ำมันพืช</li>
+        </ul>
+      </article>
+
+      <article class="donation-card">
+        <h3>ขนม & นมสำหรับเด็ก</h3>
+        <p class="card-desc">
+          เติมพลังงานและสารอาหารที่จำเป็นให้เด็กๆ ในช่วงวัยเรียน
+        </p>
+        <ul>
+          <li>นมกล่อง</li>
+          <li>ขนมซอง / เยลลี่</li>
+          <li>ธัญพืช / นมถั่วเหลือง</li>
+        </ul>
+        <p class="card-note">*โปรดตรวจสอบวันหมดอายุก่อนส่งมอบ*</p>
+      </article>
+    </div>
+  </section>
+
+
+
+
+  <section class="donation-section">
+    <header class="section-header">
+      <h2>หมวดอุปโภค</h2>
+      <p class="section-desc">
+"ดูแลสุขภาวะคนในชุมชนด้วยสิ่งของอุปโภคพื้นฐานที่สะอาด ปลอดภัย และจำเป็นต่อการดำเนินชีวิต"      </p>
+    </header>
+
+    <div class="card-grid">
+      <article class="donation-card">
+        <h3>ยาสามัญประจำบ้าน</h3>
+        <p class="card-desc">
+          สำหรับการดูแลสุขภาพเบื้องต้นในพื้นที่ห่างไกลและการเข้าถึงสถานพยาบาล
+        </p>
+        <ul>
+          <li>พาราเซตามอล / ยาแก้แพ้</li>
+          <li>ยาแก้ท้องเสีย / ยาถ่ายพยาธิ</li>
+          <li>ยาลดกรด / ยาแก้ไอ</li>
+          <li>ชุดทำแผล</li>
+        </ul>
+      </article>
+
+      <article class="donation-card">
+        <h3>เสื้อผ้า & รองเท้า</h3>
+        <p class="card-desc">
+          เสื้อผ้าที่ช่วยสร้างความอบอุ่นและลดภาระค่าใช้จ่ายของครอบครัว
+        </p>
+        <ul>
+          <li>ชุดนักเรียน / รองเท้านักเรียน</li>
+          <li>เสื้อกันหนาว / กางเกงขายาว</li>
+          <li>ผ้าห่ม / ถุงเท้า</li>
+        </ul>
+        <p class="card-note">*ขอเป็นสภาพดี สะอาด และพร้อมใช้งาน</p>
+      </article>
+
+      <article class="donation-card">
+        <h3>อุปกรณ์การเรียน & กีฬา</h3>
+        <p class="card-desc">
+          ส่งเสริมการเรียนรู้ พัฒนาทักษะ และเสริมสร้างสุขภาพให้กับเด็กๆ
+        </p>
+        <ul>
+          <li>สมุด ดินสอ ปากกา และเครื่องเขียน</li>
+          <li>หนังสืออ่านเสริม / หนังสือนิทาน</li>
+          <li>ลูกฟุตบอล และอุปกรณ์กีฬา</li>
+        </ul>
+      </article>
+
+      <article class="donation-card">
+        <h3>ของเล่น & ตุ๊กตา</h3>
+        <p class="card-desc">
+          ของเล่นที่ช่วยเสริมพัฒนาการและสร้างรอยยิ้มให้เด็กๆ
+        </p>
+        <ul>
+          <li>ของเล่นเสริมพัฒนาการ</li>
+          <li>เกมฝึกทักษะ / ตัวต่อ</li>
+          <li>ตุ๊กตามือสองสภาพดี</li>
+        </ul>
+      </article>
+
+      <article class="donation-card">
+        <h3>ของใช้ส่วนตัว</h3>
+        <p class="card-desc">
+          สิ่งของจำเป็นที่ช่วยดูแลสุขอนามัยและคุณภาพชีวิตของทุกคนในครอบครัว
+        </p>
+        <ul>
+          <li>ผ้าอนามัย</li>
+          <li>ผงซักฟอก / น้ำยาล้างจาน</li>
+          <li>สบู่ ยาสีฟัน และแปรงสีฟัน</li>
+        </ul>
+      </article>
+
+      <article class="donation-card">
+        <h3>อุปกรณ์ทำความสะอาด</h3>
+        <p class="card-desc">
+          เพื่อดูแลพื้นที่ส่วนรวม โรงเรียน และที่อยู่อาศัยให้สะอาดปลอดภัย
+        </p>
+        <ul>
+          <li>ไม้กวาด / ไม้ถูพื้น</li>
+          <li>แปรงขัดพื้น / ถังน้ำ</li>
+          <li>น้ำยาทำความสะอาดและฆ่าเชื้อ</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+
+  <aside class="donation-note">
+    <h3>สิ่งของที่ขอความกรุณางดรับบริจาค</h3>
+    <p>
+      เพื่อความเหมาะสมและความปลอดภัยของผู้รับ โครงการขอสงวนสิทธิ์ไม่รับสิ่งของดังต่อไปนี้
+    </p>
+    <ul>
+      <li>ของใช้อยู่ในสภาพชำรุดเสียหาย</li>
+      <li>อาหารที่หมดอายุ หรือใกล้หมดอายุ</li>
+      <li>เครื่องนุ่งห่มที่ชำรุดหรือเผยให้เห็นสรีระเกินสมควร</li>
+    </ul>
+  </aside>
+
+  <section class="donation-cta">
+    <p class="cta-text">
+     ร่วมสร้างสังคมแห่งการแบ่งปันและส่งต่อความดีงามไปด้วยกัน<br>
+      <strong>ทุกการส่งต่อจากคุณ คือก้าวสำคัญสู่การเปลี่ยนแปลงที่มีความหมาย</strong>
+    </p>
+
+    <div class="cta-actions">
+      <a href="donate.php" class="btn-primary">ร่วมบริจาคตอนนี้</a>
+    </div>
+  </section>
+
+</main>
+
+
+
+
+
+   <footer class="modern-footer">
+    <div class="footer-wave">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+
+    <div class="container-balanced">
+        <div class="footer-header-center">
+            <h2 class="brand-title">เพื่อเด็กบนภู<span>เพื่อนครูบนดอย</span></h2>
+            <p class="brand-subtitle">ร่วมเป็นส่วนหนึ่งในการสร้างโอกาสทางการศึกษา และพัฒนาคุณภาพชีวิตเด็กในพื้นที่ห่างไกล</p>
+            <div class="social-links">
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="footer-content-spread">
+            <div class="footer-col align-left">
+                <h3>ชมเว็บไซต์</h3>
+                <ul class="horizontal-links">
+                    <li><a href="index.php">หน้าแรก</a></li>
+                    <li><a href="donation.html">บริจาคสิ่งของ</a></li>
+                    <li><a href="events.php">กิจกรรมอาสา</a></li>
+                    <li><a href="login.php">เข้าสู่ระบบ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col align-right">
+                <h3>ติดต่อเรา</h3>
+                <div class="contact-spread">
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>094 997 8287</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>75/91 หมู่ 11 ต. คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี 12120</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 เพื่อเด็กบนภู เพื่อนครูบนดอย. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
+
+

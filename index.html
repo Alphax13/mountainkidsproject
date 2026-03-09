@@ -1,0 +1,1442 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โครงการเพื่อเด็กบนภู เพื่อนครูบนดอย</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<style>
+
+
+
+
+/* 1. Base Setup & Modern Fonts */
+/* ใช้ Anuphan: ฟอนต์ที่มีความทันสมัย (Modern Geometric) คลีนที่สุดและดูแพง */
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+    /* (ค่าตัวแปรเดิมของคุณ) */
+    --primary-color: #00507b;    
+    --secondary-color: #00796b;  
+    --accent-color: #c45b00;     
+    --bg-light: #f4fbfd;
+    --bg-soft: #f6fffd;          
+    --text-dark: #2c3e50;
+    --text-muted: #3c5759;
+    --white: #fffdf9;
+    --shadow-soft: 0 10px 40px rgba(0,0,0,0.07);
+    --shadow-strong: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* เปลี่ยนเป็น Anuphan */
+    font-family: 'Anuphan', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.7; 
+    -webkit-font-smoothing: antialiased;
+    /* ลด Letter Spacing ลงเล็กน้อยเพื่อให้ตัวอักษรเกาะกลุ่มกันดู Modern ขึ้น */
+    letter-spacing: -0.02em; 
+}
+
+/* ปรับหัวข้อให้ดูเบาลงแต่คมชัด (ความลับของดีไซน์คลีนๆ คือไม่ใช้ตัวหนาจัด) */
+h1, h2, h3 {
+    font-weight: 600; 
+    letter-spacing: -0.03em;
+}
+
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.container-narrow {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+/* 2. แถบเมนู - Modern & Elegant Version */
+nav {
+    background: rgba(255, 255, 255, 0.479); /* ขาวแบบโปร่งแสงเล็กน้อย */
+    backdrop-filter: blur(10px); /* เอฟเฟกต์กระจกฝ้าสำหรับเว็บสมัยใหม่ */
+    height: 70px; 
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.nav-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* บีบพื้นที่ให้ดูพอดีสายตา */
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* ฝั่งซ้าย: Logo + Menu */
+.nav-left-side {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* เพิ่มระยะห่างให้ดูโปร่ง */
+}
+
+.logo img.logo-img {
+    height: 52px !important; /* ปรับเพิ่มจาก 42px เป็น 52px */
+    width: auto !important;
+    display: block !important;
+    object-fit: contain;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* เพิ่มเติม: ปรับความสูงของ nav ให้รองรับโลโก้ที่ใหญ่ขึ้นเล็กน้อย */
+nav {
+    height: 80px; /* ปรับจาก 70px เป็น 80px เพื่อให้โลโก้มีพื้นที่หายใจ */
+    /* ... ส่วนที่เหลือคงเดิม ... */
+}
+
+/* เมนูหลัก */
+.nav-menu {
+    display: flex;
+    list-style: none !important;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    text-decoration: none !important;
+    color: #64748b;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative; /* สำหรับทำเส้นใต้ตอน Hover */
+    transition: 0.3s ease;
+}
+
+/* เอฟเฟกต์เส้นใต้ขีดนุ่มๆ */
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #19729c;
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #19729c;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* ฝั่งขวา: เมนูสมาชิกแบบพรีเมียม */
+.auth-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8fafc;
+    padding: 5px 5px 5px 18px; /* ปรับ Padding ให้ปุ่ม Logout เด่น */
+    border-radius: 50px;
+    border: 1px solid #edf2f7;
+}
+
+.auth-menu a {
+    text-decoration: none !important;
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.auth-menu .user-link:hover {
+    color: #19729c;
+}
+
+/* ปรับปุ่มออกจากระบบให้เหมือนปุ่มกดจริงๆ */
+.auth-menu .btn-logout {
+    background: #fee2e2;
+    color: #ef4444 !important;
+    padding: 6px 15px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.auth-menu .btn-logout:hover {
+    background: #ef4444;
+    color: #ffffff !important;
+}
+
+.divider {
+    color: #e2e8f0;
+    font-weight: 300;
+}
+
+
+
+/* 3. Hero Section (ปรับปรุงจำนวนบรรทัดและสีหัวข้อ) */
+.maincontent {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f3eee7 0%, #defbf8 100%);
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.maincontent-con {
+    max-width: 1100px; /* ขยายความกว้างรวมเพื่อให้มีพื้นที่ยืดตัวหนังสือ */
+    margin: 0 auto;
+    padding: 0 25px;
+    text-align: center;
+}
+
+.maincontent-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge {
+    background: rgba(21, 45, 109, 0.1);
+    color: #152d6d;
+    padding: 7px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.maincontent-info h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: #07164c; /* สีน้ำเงินหลักสำหรับบรรทัดแรก */
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+/* ตั้งค่าสีส้มสำหรับบรรทัดที่สอง */
+.maincontent-info h1 .highlight {
+    color: #cf6800; /* สีส้มโทนเดียวกับปุ่มของคุณ */
+    display: inline-block; /* ช่วยให้การจัดระยะแม่นยำขึ้น */
+    margin-top: 5px;      /* เพิ่มระยะห่างระหว่างบรรทัดสีน้ำเงินกับส้มเล็กน้อยถ้าต้องการ */
+}
+
+.maincontent-info p {
+    font-size: 1.15rem;
+    color: #4a5568;
+    line-height: 1.6; /* ปรับช่องไฟให้นิดนึงเพื่อความสวยงาม */
+    margin-bottom: 35px;
+    /* --- ปรับตรงนี้เพื่อให้เหลือ 2 บรรทัด --- */
+    max-width: 900px; 
+    width: 100%;
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* ส่วนปุ่ม 2 อัน */
+.btn-primary, .btn-secondary {
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 170px;
+    
+    /* --- ส่วนที่เพิ่มเพื่อลบเส้นใต้ --- */
+    text-decoration: none; 
+    display: inline-block; /* ช่วยให้ระยะ Padding และ Margin ทำงานแม่นยำขึ้น */
+    text-align: center;
+}
+
+.btn-primary { 
+    background: #19729c; 
+    color: #ffffff; 
+    border: 2px solid #19729c;
+    box-shadow: 0 4px 15px rgba(13, 86, 143, 0.51);
+}
+
+.btn-primary:hover {
+    background: #0d1e4a;
+    border-color: #0d1e4a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(21, 45, 109, 0.25);
+    color: #ffffff; /* ป้องกันสีตัวอักษรเปลี่ยนตอน Hover */
+}
+
+.btn-secondary { 
+    border: 2px solid #ff7043;
+    color: #ff7043;
+    background: transparent;
+}
+
+.btn-secondary:hover {
+    background: #ff7043;
+    color: #ffffff;
+    transform: translateY(-3px);
+    text-decoration: none; /* ย้ำอีกครั้งว่าไม่เอาเส้นใต้ตอน Hover */
+}
+
+
+
+/* 4. Service Showcase (เราทำอะไรบ้าง?) */
+.what-we-do { 
+    padding: 100px 0; 
+    background: var(--white);
+ }
+
+.section-title { 
+    text-align: center; 
+    margin-bottom: 70px; 
+}
+
+.section-title h2 { 
+    font-size: 2.4rem; 
+    font-weight: 700; 
+    color: #152d6d; /* เปลี่ยนรหัสสีตรงนี้ เช่น น้ำเงินเข้ม */
+}
+
+.underline { 
+    width: 70px; 
+    height: 5px; 
+    background: var(--accent-color); 
+    margin: 18px auto; 
+    border-radius: 10px; 
+}
+
+/* --- ส่วนที่ปรับปรุง --- */
+
+.grid {
+    display: grid;
+    /* ปรับ minmax ให้เล็กลงจาก 300px เป็น 280px เพื่อให้เบียดกันได้มากขึ้นในแถวเดียว */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 35px;
+    /* เพิ่มการจัดวางให้อยู่กึ่งกลางหน้าจอ */
+    justify-content: center; 
+}
+
+.card {
+    /* ปรับเป็นสีขาวบริสุทธิ์ */
+    background: #ffffff; 
+    
+    border-radius: 24px;
+    padding: 10px; 
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(0, 0, 0, 0.016);
+    transition: 0.4s;
+
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 350px; 
+    margin: 0 auto; 
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-strong);
+}
+
+.card h3 { 
+    color: #ab4506; /* เปลี่ยนเป็นสีส้มให้เข้ากับปุ่ม Hero หรือสีที่คุณชอบ */
+    margin-bottom: 15px; 
+    font-weight: 700; 
+}
+
+.card p {
+    color: #5b5b5b; /* สีเทาเข้มจะทำให้อ่านง่ายและดูสะอาดตา */
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+
+
+/* 5.(แนะนำ โครงการ) - ปรับแค่ระยะห่างให้แคบลง */
+.content-block { padding: 80px 0; } /* ลด Padding รวมลงนิดหน่อย */
+
+.content-block-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.content-block-inner.reverse { direction: rtl; }
+.content-block-inner.reverse .text-side, 
+.content-block-inner.reverse .image-side { direction: ltr; }
+
+/* 1. ปรับ Tag ให้ชิดหัวข้อหลักมากขึ้น */
+.tag { 
+    color: var(--secondary-color); 
+    font-weight: 700; 
+    font-size: 0.9rem; 
+    display: block; 
+    margin-bottom: 2px; /* ลดจาก 5px เหลือ 2px */
+}
+
+/* 2. ปรับเส้นใต้ให้ชิดทั้งบนและล่าง */
+.underline-left { 
+    width: 50px; 
+    height: 4px; 
+    background: var(--accent-color); 
+    /* margin: บน(5px) ขวา(0) ล่าง(12px) ซ้าย(0) */
+    margin: 5px 0 12px 0; 
+    border-radius: 10px; 
+}
+
+/* 3. ปรับเนื้อหาให้ขยับขึ้นมาหาเส้น */
+.text-side p { 
+    text-align: justify; 
+    color: var(--text-muted); 
+    font-size: 1.05rem;
+    margin-top: 0; /* มั่นใจว่าไม่มี margin บนมาดัน */
+    line-height: 1.6;
+}
+
+
+
+
+
+
+/* คอนเทนเนอร์หลักสำหรับคุมระยะลูกศร */
+.slider-wrapper {
+    position: relative;
+    max-width: 1000px; /* ปรับให้กว้างกว่าตัวการ์ดเล็กน้อย */
+    margin: 0 auto;
+    padding: 0 50px; /* เว้นที่ว่างซ้าย-ขวาให้ลูกศร */
+}
+
+.swiper {
+    width: 100%;
+    padding-bottom: 50px !important; /* พื้นที่สำหรับจุดวงกลมด้านล่าง */
+    overflow: hidden; /* ให้ซ่อน slide อื่นๆ ตามปกติ */
+}
+
+/* ปรับแต่งตำแหน่งลูกศร */
+.swiper-button-next, 
+.swiper-button-prev {
+    color: #ff6b6b; /* สีลูกศร */
+    top: 45%; /* ขยับขึ้นลงให้กลางการ์ด */
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover, 
+.swiper-button-prev:hover {
+    background: #ff6b6b;
+    color: #fff;
+}
+
+/* ดันลูกศรออกไปข้างนอกขอบการ์ด */
+.swiper-button-next {
+    right: 0px; 
+}
+
+.swiper-button-prev {
+    left: 0px;
+}
+
+/* ปรับขนาดลูกศรข้างใน */
+.swiper-button-next::after, 
+.swiper-button-prev::after {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ปรับจุดกลมๆ ด้านล่าง */
+.swiper-pagination-bullet-active {
+    background: #ff6b6b;
+}
+
+/* สำหรับมือถือ: ซ่อนลูกศรแล้วใช้การรูดหน้าจอแทน */
+@media (max-width: 768px) {
+    .slider-wrapper {
+        padding: 0;
+    }
+    .swiper-button-next, 
+    .swiper-button-prev {
+        display: none;
+    }
+}
+
+
+
+
+/* 7. กิจกรรม / ข่าวสาร (ปรับสมดุล Gap และหัวข้อกลาง) */
+.content { 
+    padding: 100px 0; 
+    background: #fffdfc; 
+}
+
+/* จัดหัวข้อหลักให้อยู่กึ่งกลางสมบูรณ์ */
+.content-title {
+    text-align: center;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-title h2 {
+    font-size: 2.4rem;
+    color: #152d6d;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+/* เพิ่มเส้นใต้หัวข้อหลักเพื่อให้ดูมีสไตล์เหมือนส่วนอื่น */
+.content-title::after {
+    content: "";
+    width: 70px;
+    height: 5px;
+    background: #d76800;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.content-con {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    /* --- ปรับช่องว่าง (Gap) ให้ห่างขึ้นเพื่อความสมดุล --- */
+    gap: 40px; 
+    max-width: 9999px; 
+    margin: 0 auto;
+    padding: 0 40px; /* เพิ่ม Padding ซ้ายขวาเพื่อไม่ให้ช่องชิดขอบจอเกินไป */
+}
+
+.content-item {
+    background: #ffffff;
+    border-radius: 24px; /* ปรับให้โค้งมนรับกับ Gap ที่กว้างขึ้น */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.content-item:hover { 
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(21, 45, 109, 0.12);
+}
+
+.content-item img { 
+    width: 100%; 
+    height: 190px; 
+    object-fit: cover; 
+}
+
+.item-text { 
+    padding: 25px 20px; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.item-text h4 { 
+    color: #152d6d; 
+    margin-bottom: 12px; 
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.4;
+}
+
+.item-text p {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.content-btn {
+    display: inline-block;
+    margin-top: auto;
+    color: #d76800; 
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+/* ปรับปรุง Responsive ให้ยังดูดีในทุกหน้าจอ */
+@media (max-width: 1300px) {
+    .content-con {
+        gap: 25px; /* ลด Gap ลงเล็กน้อยในจอขนาดกลาง */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .content-con {
+        grid-template-columns: 1fr;
+        padding: 0 25px;
+    }
+}
+
+
+/* ============================================================
+   กิจกรรมถัดไป (Upcoming Activity) - Card แบบพิเศษ
+   ============================================================ */
+
+.upcoming-activity {
+    padding: 100px 0;
+    background-color: var(--bg-soft); /* ใช้สีพื้นหลังอ่อนๆ ตามธีมหลัก */
+}
+
+/* การจัดวาง Card หลัก */
+.activity-card-fancy {
+    display: flex;
+    background: var(--white);
+    border-radius: 24px; /* ปรับให้มนเท่ากับ Card ส่วนอื่น */
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 40px;
+    max-width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.activity-card-fancy:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-strong);
+}
+
+/* ส่วนรูปภาพ */
+.activity-image {
+    flex: 1;
+    position: relative;
+    min-width: 450px;
+    overflow: hidden;
+}
+
+.activity-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.activity-card-fancy:hover .activity-image img {
+    transform: scale(1.08);
+}
+
+/* ป้ายสถานะ กิจกรรมถัดไป */
+.activity-status {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background: var(--accent-color); /* ใช้สีส้ม Accent ตาม Root */
+    color: var(--white);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(196, 91, 0, 0.3);
+    z-index: 10;
+    letter-spacing: 0.5px;
+}
+
+/* ส่วนเนื้อหาข้อมูล */
+.activity-info-fancy {
+    flex: 1.2;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.activity-info-fancy h3 {
+    font-size: 2.2rem;
+    color: var(--primary-color); /* สีน้ำเงินหลัก */
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.school-tagline {
+    color: var(--secondary-color); /* สีเขียวหัวเป็ดตามธีม */
+    font-weight: 500;
+    margin-bottom: 35px;
+    font-style: italic;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 20px;
+    font-size: 1.1rem;
+}
+
+/* ตารางข้อมูล สถานที่/เวลา */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.info-item i {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-top: 4px;
+}
+
+.info-item strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+}
+
+.info-item span {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* ปุ่มกดด้านล่าง */
+.action-footer {
+    display: flex;
+    gap: 20px;
+}
+
+/* ใช้สไตล์เดียวกับ .btn-primary ที่คุณมี */
+.activity-info-fancy .btn-main {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    text-align: center;
+    flex: 1;
+    box-shadow: 0 4px 15px rgba(0, 80, 123, 0.2);
+}
+
+.activity-info-fancy .btn-main:hover {
+    background: #07164c;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 80, 123, 0.3);
+}
+
+/* ใช้สไตล์เดียวกับ .btn-secondary ที่คุณมี */
+.activity-info-fancy .btn-outline {
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    background: transparent;
+    padding: 12px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    text-align: center;
+    flex: 1;
+}
+
+.activity-info-fancy .btn-outline:hover {
+    background: var(--accent-color);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* --- Responsive สำหรับ Card นี้ --- */
+@media (max-width: 992px) {
+    .activity-card-fancy {
+        flex-direction: column;
+        margin: 0 20px;
+    }
+    
+    .activity-image {
+        min-width: 100%;
+        height: 300px;
+    }
+    
+    .activity-info-fancy {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .activity-info-fancy h3 {
+        font-size: 1.8rem;
+    }
+    
+    .action-footer {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+
+
+/* 8. ฟุตเตอร์ */
+footer.contact {
+    background: #e9f2fc; 
+    padding: 60px 0 30px; 
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    color: #334155;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- ส่วนของเมนู (ฝั่งซ้าย) --- */
+.footer-left-col h3 {
+    font-size: 0.95rem; 
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+/* ลบจุดหน้าเมนูแบบถอนรากถอนโคน */
+footer.contact ul, 
+footer.contact li {
+    list-style: none !important;      /* ลบจุดลิสต์ */
+    list-style-type: none !important; /* ย้ำประเภทลิสต์ว่าไม่มี */
+    background-image: none !important; /* ลบกรณีที่ใช้รูปภาพแทนจุด */
+    padding: 0 !important;            /* ลบช่องว่างที่จุดเคยอยู่ */
+    margin: 0 !important;             /* ลบระยะขอบ */
+    text-indent: 0 !important;        /* ลบการย่อหน้า */
+}
+
+/* ปรับระยะห่างระหว่างบรรทัดเมนูใหม่หลังจากล้างค่า margin/padding */
+footer.contact .footer-left-col ul li {
+    margin-bottom: 12px !important;   /* ให้กลับมาห่างกันพอดีๆ */
+}
+
+/* ลบเส้นใต้ลิงก์ทุกจุดใน Footer */
+footer.contact a {
+    text-decoration: none !important; /* ลบเส้นใต้ออกแบบเด็ดขาด */
+    box-shadow: none !important; /* เผื่อบางธีมใช้ shadow แทนเส้นใต้ */
+    color: #64748b;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+footer.contact a:hover {
+    color: #1e293b;
+    text-decoration: none !important; /* มั่นใจว่า hover แล้วเส้นไม่โผล่ */
+}
+
+/* --- ส่วนของ Contact Card (ฝั่งขวา) --- */
+.contact-card {
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02); 
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 320px; 
+}
+
+.contact-card h3 {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center; 
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.contact-row i {
+    font-size: 0.9rem;
+    color: #64748b; 
+    width: 20px;
+    text-align: center;
+}
+
+/* ปรับสี Facebook ให้เป็นโทนเดียวกัน */
+.fa-facebook, .fa-facebook-f {
+    color: #64748b !important; 
+}
+
+.contact-row p {
+    font-size: 0.85rem; 
+    line-height: 1.4;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ส่วนลิขสิทธิ์ */
+.footer-bottom {
+    margin-top: 50px;
+    padding: 25px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05); /* เส้นคั่นบางๆ แบบหรูๆ */
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+}
+
+
+
+
+
+/* มือถือ: จัดทุกอย่างอยู่ตรงกลาง */
+@media (max-width: 768px) {
+    .footer-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .contact-card {
+        text-align: left; /* ในการ์ดยังคงชิดซ้ายเพื่อความสวยงาม */
+    }
+
+    .footer-left-col {
+        margin-bottom: 30px;
+    }
+}
+
+/* Responsive: เมื่อจอมือถือเล็ก ให้กลับมาจัดตรงกลาง */
+@media (max-width: 768px) {
+    .footer-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .footer-right-col {
+        text-align: center;
+    }
+}
+
+/* ปรับให้ดูดีในมือถือ */
+@media (max-width: 768px) {
+    .footer-flex {
+        flex-direction: column; /* เปลี่ยนเป็นแนวตั้ง */
+        text-align: center;
+    }
+
+    .footer-left {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-right {
+        justify-content: center; /* จัดกลางในมือถือ */
+        gap: 30px;
+        width: 100%;
+    }
+    
+    .footer-desc {
+        margin: 0 auto;
+    }
+}
+
+
+/* 9. Responsive Strategy (การตอบสนองทุกอุปกรณ์) */
+/* ปรับการแสดงผลให้สมบูรณ์แบบทั้งบนสมาร์ทโฟนและแท็บเล็ต */
+@media (max-width: 768px) {
+    .maincontent-con, .content-block-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    .maincontent-info h1 { font-size: 2.4rem; }
+    .hero-btns { justify-content: center; }
+    .nav-menu { display: none; }
+    .content-block-inner.reverse { direction: ltr; }
+    .underline-left { margin: 10px auto 25px auto; }
+}
+</style>
+<body>
+
+<nav>
+    <div class="container nav-con">
+        <div class="nav-left-side">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.jpg" alt="โลโก้โครงการ" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="#">บริจาคสิ่งของ</a></li>
+                <li><a href="#">เข้าร่วมกิจกรรม</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right-side">
+            <div class="auth-menu">
+                <a href="#" class="btn-login">เข้าสู่ระบบ</a>
+                <span class="divider">|</span>
+                <a href="#" class="user-link">ประวัติสมาชิก</a>
+                <a href="#" class="btn-logout">ออกจากระบบ</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <main>
+        <section class="maincontent">
+            <div class="container">
+                <div class="maincontent-con">
+                    <div class="maincontent-info">
+                        <span class="badge">โครงการอาสา</span>
+                        <h1>เพื่อเด็กบนภู <br><span class="highlight">เพื่อนครูบนดอย</span></h1>
+                        <p>มุ่งช่วยเหลือการศึกษาของเด็กในพื้นที่ห่างไกลที่ขาดแคลนทรัพยากร
+                           เพื่อให้เด็กๆ ได้รับโอกาสทางการศึกษาอย่างเท่าเทียม
+                           พร้อมสนับสนุนคุณครูผ่านการบริจาคสิ่งของจำเป็นและอุปกรณ์การเรียน
+                        </p>
+                        <div class="hero-btns">
+                            <a href="https://www.facebook.com/profile.php?id=100069644543492&locale=th_TH" class="btn-primary" target="_blank">เยี่ยมชมเพจโครงการ</a>
+                            <a href="donation.html" class="btn-secondary">รายการสิ่งของที่รับบริจาค</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+ <section class="what-we-do">
+    <div class="container">
+        <div class="section-title">
+            <h2>เราทำอะไรบ้าง</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>“แจกจ่ายสิ่งของบริจาค”</h3>
+                    <p>ส่งต่อสิ่งของจากน้ำใจของผู้บริจาคทุกท่านให้แก่ชาวบ้านในชุมชนบนดอยทั้งสิ่งของอุปโภคและบริโภค</p>
+                </div>
+                <div class="image-side">
+                    <div class="slider">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/557606236_1084370453894429_5500311208541723574_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=5ILbhMgbBsUQ7kNvwFdlirB&_nc_oc=AdlFq9TNpSj7dBB7C11nb3G_B2T2k2r4sxzai-9Pi8aC0v9OZYmEjZuasqmSfqTS7GPzDF3QZL_E-GErT97kDR3n&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=uIRN_qCW6RSGuQKadTwmOg&oh=00_Afr6LqUYdc0IRTmPZc-YSv0eu57_Y70x1-qPIbPS3CFGYQ&oe=696D70A4" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/600144567_1145571077774366_5615306205627022005_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=BtuVRyjzvfMQ7kNvwHhSo6I&_nc_oc=AdluFygwUXaABwG5H6GTgzAQQC25eSWCeDIWurdkYSAVijKFgddwRYnYR8244fjI2UskycuQhX8XHDM57HH8qiaL&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=lPkqhJDer6AdvSi5bLF6ug&oh=00_Afqsa2S5iOZj8ln2mdXEbhWT_1kp7LNhjvYLTQqrOpee4g&oe=696D682B" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/532570151_1042757201389088_7118396986862958121_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=YtDM389jxhEQ7kNvwGjKuUL&_nc_oc=AdkZScMfi9q7p2MkIqyQTWyxC0l3AI_yCCYsmAk6522b0qsrXhratuRhJsYQjKSgKM4LbLi-DSJmJhx0l3foMUAW&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=QTb-zONd88TikgUT6wCNhQ&oh=00_AfryFuYPXRZtkcl7qo2XXDnINcnw6PK9HvRjuyABm1Z8AQ&oe=696D9FAD" alt="กิจกรรมโครงการ"> 
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/578270364_1114679614196846_7375582064538762411_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=jgG3gwXxvOIQ7kNvwGQzqNu&_nc_oc=AdnziKilWb9S7BOzNVyRb_DhYn15hH-6Q4HmW8C6dN_-NR57HjagF7HFFSmntkJDofZl2Qi4uSStp9gUDXolT2am&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=mLp3k3LjZOSO8UfGdobsDQ&oh=00_Afr4pJG76IuRxqrV5O68i3Vk9JwPDmisU6oyIiesHsu2RQ&oe=696D793C" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/561350370_1093788252952649_5251611793561055665_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=WG5kxN2vP3EQ7kNvwH36GSp&_nc_oc=AdnHIQ7Pe6MsR9sTPUPJVMWTm9mKrW5zSHE_KlIelfXQlIYSKAxJYXRANjUq1z_spTQz9ocRK6QF4QartSLtJYWV&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=njWDV1QP4mk1p7PmretAWA&oh=00_AfqlMBK6TViSCl52PXv-BGpiMPvYh1RBYgpEvNJOsoaW7Q&oe=696D79E7" alt="กิจกรรมโครงการ">
+                    </div>
+                    <p class="slider-hint">〈 เลื่อนเพื่อชมรูปภาพ 〉</p>
+                </div>
+            </div>
+
+
+                <div class="card">
+                <div class="card-content">
+                    <h3>“กีฬาสร้างฝันดอยสูง”</h3>
+                    <p>งานกีฬาเล็กๆเพื่อเสริมสร้างความสามัคคีในชุมชนและเปิดโอกาสให้เด็กๆการแบ่งปันและการทำงานเป็นทีมผ่านการเล่นกีฬาอย่างสร้างสรรค์และเหมาะสมกับวัย</p>
+                </div>
+                <div class="image-side">
+                    <div class="slider">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/600207630_1143884694609671_3020689864038856576_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=4VAYDlyv4EsQ7kNvwFxRYGf&_nc_oc=AdlgzvCXJb2p4_MRIykMFJVk3zJil1lhKxnq7Hc2uoPgQzPSKlzUG3APxtwasERY_lJJTO5zhN7eGVW8T2Jxe5Ge&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=pQBs49rWkg_sNSoYG6IElg&oh=00_Afp7tUYe6ckC8FY_IAV5i8LGWqKlWhXaeruzSKeidyNG6g&oe=696D6DCFhttps://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/600207630_1143884694609671_3020689864038856576_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=4VAYDlyv4EsQ7kNvwFxRYGf&_nc_oc=AdlgzvCXJb2p4_MRIykMFJVk3zJil1lhKxnq7Hc2uoPgQzPSKlzUG3APxtwasERY_lJJTO5zhN7eGVW8T2Jxe5Ge&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=pQBs49rWkg_sNSoYG6IElg&oh=00_Afp7tUYe6ckC8FY_IAV5i8LGWqKlWhXaeruzSKeidyNG6g&oe=696D6DCF" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/599428480_1143884834609657_1628675380198559854_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=LmEACFFyesEQ7kNvwFRpjb8&_nc_oc=AdlHIBI9gAGhclBHthMN0kk2chZnrsgn8i42UweH3HFgZSkF3VpDI1m5ofDAyCPBhi2hEoPvS905Zpdg6f9I3Ww1&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=EEY8HxJq64C2URoU3axOBA&oh=00_AfrDwdiJsCSxMV59bN3l-jom3q4uJZKF_C3SGqDXdItGbw&oe=696D944E" alt="กิจกรรมโครงการ"> 
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/598691171_1143884957942978_4203838275837242793_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=UhDK52apB1IQ7kNvwH_m0pF&_nc_oc=AdkyC1SLRPTvbTQweuQ_QCR-CNkCi3yaTlNnqM2YkLec4xpyw6CtSKD1wtZ6Hx_Luzi1Ne6yLWD-Na7dqffYvQmF&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=10YvCpAFn07MMmt5KVjlig&oh=00_AfoC1kO96woF6O2I-R7qVt_fdcakvwXFdPU1aGoAW4dlkw&oe=696D712F" alt="กิจกรรมโครงการ">
+                        <img src="" alt="กิจกรรมโครงการ">
+                        <img src="" alt="กิจกรรมโครงการ">
+                    </div>
+                    <p class="slider-hint">〈 เลื่อนเพื่อชมรูปภาพ 〉</p>
+                </div>
+                </div>
+
+                <div class="card">
+                <div class="card-content">
+                    <h3>“นาทีทอง”</h3>
+                    <p>ช่วงเวลาแห่งการแบ่งปัน ผ่านการส่งต่อเสื้อผ้ามือสองจากน้ำใจของทุกท่าน สู่เด็กๆ และชาวบ้าน</p>
+                </div>
+                <div class="image-side">
+                    <div class="slider">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/536331978_1046008067730668_7598146888402518156_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=OAezFI9ZHW0Q7kNvwFLRKu9&_nc_oc=AdkDPJ8XZ1r6Wf8F5qdPinda-wtvD1Va25SdLzTlXG3OW2XzVfYPglOiBeJe7qnoYb6ebuaWEPxfI1DbW6LMD0H0&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=_DfR5QROiY-iapR4fKxKoA&oh=00_AfrsVBb_8OAP1s0ueCelnwKw5X0gOJJ9dowyy2EmMcKxBA&oe=696DA046" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/534918330_1046007821064026_3818813628196857863_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=lP1_Fb5FqMYQ7kNvwE0XADJ&_nc_oc=AdmVtR46C8i3j9iY62CdeX5TiZhF8X5ef6YzczSjy8OuX6r6qR89NE-E86D9ifn1ZmU-Je6eJxhZh5lkdRe0ahRZ&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=_6DUqtC3H6irxkp1qVGc-g&oh=00_AfrqH-IMRrhumc-JcVFVO_Ewuf3QK-XmpAVNtiVsML0K6A&oe=696D8324" alt="กิจกรรมโครงการ"> 
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/534851800_1046007997730675_521920181832367042_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Jp5IPPff7BEQ7kNvwHKEIc5&_nc_oc=AdneNmnaiZ-F9MgWx9vNPbqt8DoegQ1mlsIAmc11OSL0mBEvgvDticeWxDU4GiQzBwJRHvg6TW8wnzpkEbxN3SCN&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=HyeefI7_brSvgnxOJK2sLw&oh=00_AfrX-f86H6b6ltbdKWWTmH1M-Fycb-EgQ9NAjAYdwDfRyQ&oe=696D76AE" alt="กิจกรรมโครงการ">
+                        <img src="" alt="กิจกรรมโครงการ">
+                        <img src="" alt="กิจกรรมโครงการ">
+                    </div>
+                    <p class="slider-hint">〈 เลื่อนเพื่อชมรูปภาพ 〉</p>
+                </div>
+                </div>
+
+                <div class="card">
+                <div class="card-content">
+                    <h3>“เกมมหาสนุก” </h3>
+                    <p>การเล่นเกมนันทนาการกับเด็กๆ และชาวบ้าน เพื่อสร้างรอยยิ้มและความสนุกสนานร่วมกัน</p>
+                </div>
+                <div class="image-side">
+                    <div class="slider">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/600908487_1144908697840604_4425056563419396809_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=H1IbWAVtFVAQ7kNvwFuzMHz&_nc_oc=AdlromJPMzQtKnSoH-hjl8RHh5IgYFpG7VJjekH_XW1jJ4KEjU6dKOsjT23q2i9Wjb1o45xnBBJXRzCtCxQwqDGW&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=UiMZJdPBZMM5DiWsguaKDA&oh=00_AfqYB2teIJ-2z65f2ptWTXEn5jMFmwTJtNIalcVfWnMQMg&oe=696D6B39" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/592329744_1131651089166365_5803433251116496365_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=GWYcfR6mOqMQ7kNvwGWx-92&_nc_oc=AdmVqEYopEZIFl1mUyYJl_ehPA6XkCwL1wx2OHoNZue9TQw_7PzFYzeuJRJVWZdTbabFN4Io73h_DiNGjZOhG8VS&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=DCPHIUpqkPGVx4ojHDep4A&oh=00_AfpLW0UFwm7ritAARoQLfcGaaCbE7oKybUN6sB_hpw7Wzg&oe=696D7E36" alt="กิจกรรมโครงการ"> 
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/594055324_1131651189166355_4533793623418553974_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ATBzWI1x48oQ7kNvwE_x0Dd&_nc_oc=AdmOI25pN5OON3RdQw88kF2yCmRky7MxRz7XXkMx3Jb8_rVax8CP8cQJW4wCr93GIo8zPSmMbyluX-PwbYbY1LLW&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=QEHLn-j4qIQWpX_eiCU3KA&oh=00_AfopCWjtgE6SE46mEY9Wl-SgUvJtcKXybYOACUCmmv7NFQ&oe=696D84A4" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/537122221_1047584264239715_3949927171701846397_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=hjRXBUss8A0Q7kNvwEmKyjA&_nc_oc=Adk6FigpKNB4pQjBO_keCGPND5ulvCUtwgRtBA5u833Xe3YPQauWQXQaCPcPaI8bVolspMP_Vi70qO7kczvVWGms&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=gnzsbpQJrw1nJdnpKSADIQ&oh=00_Afrl143Pyi61_MS9D-bWJU-WXjETaM2xjx8Ug6mBI-Tavw&oe=696D7944" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/536761027_1047584490906359_7440254477104511078_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Ajwu0eWV3iwQ7kNvwF95GFT&_nc_oc=AdmiUFBcqXmDkLeggRyUJGeS316HvnZ37wNbDjIiPVNPkXlB9ozCAOT7OXB1RhZ48uRsDhVqoJXvFI9W8cq4GEzb&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=cqF02fe_gCTmThF0YZDoOQ&oh=00_Afqgg5dR1QwnoSJDmw8fMardKKekHPmCr1doDtWNMunIFQ&oe=696D6D94" alt="กิจกรรมโครงการ">
+                    </div>
+                    <p class="slider-hint">〈 เลื่อนเพื่อชมรูปภาพ 〉</p>
+                </div>
+                </div>
+
+                <div class="card">
+                <div class="card-content">
+                    <h3>“งานวันพ่อและวันแม่แห่งชาติ”</h3>
+                    <p>เพื่อแสดงความจงรักภักดีและน้อมรำลึกถึงพระมหากรุณาธิคุณของพระบาทสมเด็จพระเจ้าอยู่หัว และสมเด็จพระนางเจ้าฯ พระบรมราชินีนาถ พร้อมทั้งส่งเสริมความกตัญญูกตเวทีในชุมชน</p>
+                </div>
+                <div class="image-side">
+                    <div class="slider">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/600889575_1143884457943028_448917285536983079_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=hncq6ehlmRsQ7kNvwGv3c3L&_nc_oc=Adk7P6XZoz7z6pSUYjYNGe_wAdbBAvKWHkp4LLY3go79AQXnbnpwF3yFk0ZfndreNnzUyoDcC3F4Hf1so2flTH2Y&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=wSp3PJnqDHDE_l-35zYAaQ&oh=00_AfpkPD6prZwes3vf7l-bDjjj21vNiKpFn0hEjpZrCJ4qWA&oe=696D862C" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/598889346_1143884447943029_3019399517861735520_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=V3Z1pzqMwOEQ7kNvwFxQjLN&_nc_oc=AdmMZzfaTbtz2Md4tqpWBVxL752Hgc3pmrjKV70_63R7bHVLB9wNLAsKZqQiZRYnhQUqI_TmoCV6oEzdnzwEOIEm&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=fH3QhAJW6UPGrm7BHdW2Iw&oh=00_Afrz6vyXOQg8UZ9Unf__NK_0TzDk1Cy7mMYu17jRenxv7Q&oe=696D9655" alt="กิจกรรมโครงการ"> 
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/599206464_1143885387942935_7756400692677234772_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=oGzrsy7KTqgQ7kNvwGqCBe2&_nc_oc=Admca_7yb54AVWtbWUtCEjY1jXP7DXJPrz1SK-k5yGNaK056fjRDrORiEwbTKv9vlgiBUbbzPw-pk4f0C6iVfBuV&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=mLaL9v4IW19oEhbiNTAifg&oh=00_Afr1UztYWY5KQphPinb75Tvr_WBPKkr08Bd4MZQChnvvcA&oe=696D816D" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/590295530_1132500425748098_1736227714997578824_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=N4s8IOSEyqoQ7kNvwEHx5_h&_nc_oc=Adla8fa0lMQ0PcXEClHKOlMUr0WcbdXeyzbVR-2mi3K9skrPOSejO0S58SCmLeItpHcvWh9_8UHYr6qyx5OJGyyD&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=Y_GbEIjjoJrSSe2qF0knhQ&oh=00_AfpEgBwim0WkL9L6pJOEoD6zQdS8EGqaaic3wvVvrAQmQA&oe=696D7AF0" alt="กิจกรรมโครงการ">
+                        <img src="" alt="กิจกรรมโครงการ">
+                    </div>
+                    <p class="slider-hint">〈 เลื่อนเพื่อชมรูปภาพ 〉</p>
+                </div>
+                </div>
+
+                <div class="card">
+                <div class="card-content">
+                    <h3>“ครัวมิชลินบนยอดดอย”</h3>
+                    <p> กิจกรรมทำอาหารเลี้ยงชุมชนเพื่อให้เด็กๆ และชาวบ้านได้ลิ้มรสอาหารแสนอร่อยที่บางคนอาจไม่เคยได้ชิมทุกเมนูคัดสรรจากเมืองกรุงสู่ยอดดอย</p>
+                </div>
+                <div class="image-side">
+                    <div class="slider">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/587789171_1129055202759287_1550321967238971771_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=scoYJnRDYGMQ7kNvwE-tC-v&_nc_oc=AdkTyVNMfS7tu5aJVIeL99Sc9RV8xf-N-YjBHpT8rlPgGepCsSSIHDg4Qs7QQ29RYHQKGjAD8c0xEivEIpRCB_9f&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=1kVGh3qyO7bmJh8X6snQ2A&oh=00_AfoTja25cWeSbdRmQ_ETtxR7WEUhDwqO-nK-zMLWMAW-kw&oe=696D9D72" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/589420297_1129055332759274_5937696018025753413_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=1NUArY8JLhIQ7kNvwErOrV5&_nc_oc=Adkyxhy83rVfBvVOZo_gXr-UNtEtjN6TvwJDiZmYjqPufPnm7CSt9_oLaGyGERvX-jBxywShrIDPYz2J6FfvXnJN&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=JVB0DdpMHcNsrkq25dc--A&oh=00_AfotJLiowWgQp1SiFqg_UR4XPhcRzgnIyorIL0gCoh_ITg&oe=696D831E" alt="กิจกรรมโครงการ"> 
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/545509979_1061217382876403_2754730532707477161_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=egycLUOFZh0Q7kNvwF0aJOb&_nc_oc=AdlsRKEY8B2nkeJb3lkrCGcDcpbzBU2uo7MhgDQkU8zNw7xsxiEAJFc8GyeZH5S26CwV1KLVS6tscyRX5aInjUH0&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=Maga4zrpMHMspcUVjiBsFA&oh=00_AfpXfRmgz4rZAtZXXYt4LVyXpRIthL26KKKd8iXTvkZ37Q&oe=696D9CCF" alt="กิจกรรมโครงการ">
+                        <img src="" alt="กิจกรรมโครงการ">
+                        <img src="" alt="กิจกรรมโครงการ">
+                    </div>
+                    <p class="slider-hint">〈 เลื่อนเพื่อชมรูปภาพ 〉</p>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+<section class="upcoming-activity">
+    <div class="container">
+        <div class="section-title">
+            <h2>กิจกรรมอาสาที่กำลังจะมาถึง</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="slider-wrapper">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="activity-card-fancy">
+                            <div class="activity-image">
+                                <img src="mom-event.jpg" alt="วันแม่">
+                                <div class="activity-status">สิงหาคม</div>
+                            </div>
+                            <div class="activity-info-fancy">
+                                <h3>กิจกรรมวันแม่แห่งชาติ</h3>
+                                <p class="school-tagline">"ภารกิจร้อยรอยยิ้ม มอบความอบอุ่นแทนใจในวันแม่"</p>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <div><strong>สถานที่</strong> <span>ศูนย์การเรียนรู้ชุมชนไทยภูเขาแม่ฟ้าหลวงบ้านแม่ลาบู อ.ท่าสองยาง จ.ตาก</span></div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fa-solid fa-calendar-check"></i>
+                                        <div><strong>กำหนดการ</strong> <span>12 – 14 สิงหาคม 2569</span></div>
+                                    </div>
+                                </div>
+                                <div class="action-footer">
+                                    <a href="activities.html" class="btn-main">เข้าร่วมกิจกรรม</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="activity-card-fancy">
+                            <div class="activity-image">
+                                <img src="dad-event.jpg" alt="วันพ่อ">
+                                <div class="activity-status">ธันวาคม</div>
+                            </div>
+                            <div class="activity-info-fancy">
+                                <h3>กิจกรรมวันพ่อแห่งชาติ</h3>
+                                <p class="school-tagline">"ปลูกจิตสำนึกดีทำดีตามรอยพ่อ"</p>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <div><strong>สถานที่</strong> <span>ศูนย์การเรียนรู้ชุมชนไทยภูเขาแม่ฟ้าหลวง บ้านมอโกรทะ อำเภออมก๋อย จังหวัดเชียงใหม่</span></div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fa-solid fa-calendar-check"></i>
+                                        <div><strong>กำหนดการ</strong> <span>5 – 7 ธันวาคม 2569</span></div>
+                                    </div>
+                                </div>
+                                <div class="action-footer">
+                                    <a href="activities.html" class="btn-main">เข้าร่วมกิจกรรม</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+        <section class="content">
+            <div class="container">
+                <div class="content-title">
+                    <h3>บันทึกการเดินทางแห่งการให้</h3>
+                </div>
+
+                <div class="content-con">
+                    <div class="content-item">
+                        <img src="../icewab/icewab/1/1.1.png" alt="สิ่งของที่ได้รับการสนับสนุน">
+                        <div class="item-text">
+                            <h4>น้ำใจที่ส่งถึง</h4>
+                            <p>ทุกแรงแบ่งปัน ทั้งเครื่องนุ่งห่มและอุปกรณ์การเรียน สู่โอกาสทางการศึกษาและคุณภาพชีวิตที่ดีขึ้น ช่วยเติมเต็มความหวังให้กับเด็กๆ และคุณครูในพื้นที่ห่างไกล</p>
+                            <a href="donated1.1.html" class="content-btn">ชมรูปภาพ</a>
+                        </div>
+                    </div>
+
+                    <div class="content-item">
+                        <img src="../icewab/icewab/1/1.2.png" alt="กิจกรรมของโครงการ">
+                        <div class="item-text">
+                            <h4>ช่วงเวลาแห่งความสุข</h4>
+                            <p>จัดกิจกรรมเพื่อส่งต่อความอบอุ่น ผ่านการแจกอุปกรณ์การเรียน ของเล่น และกิจกรรมสร้างเสริมประสบการณ์ให้เด็กๆ</p>
+                            <a href="activity1.2.html" class="content-btn">ชมรูปภาพ</a>
+                        </div>
+                    </div>
+
+                    <div class="content-item">
+                        <img src="../icewab/icewab/1/1.3.png" alt="ผลลัพธ์จากกิจกรรม">
+                        <div class="item-text">
+                            <h4>รอยยิ้มที่ยั่งยืน</h4>
+                            <p>โรงเรียนได้รับการพัฒนา เด็กๆ มีอุปกรณ์การเรียนที่เหมาะสม และชุมชนมีคุณภาพชีวิตที่ดีขึ้นอย่างเห็นได้ชัด</p>
+                            <a href="result1.3.html" class="content-btn">ชมรูปภาพ</a>
+                        </div>
+                    </div>
+
+                    <div class="content-item">
+                        <img src="../icewab/icewab/1/1.4.png" alt="การเดินทางไปบริจาค">
+                        <div class="item-text">
+                            <h4>เส้นทางแห่งการให้</h4>
+                            <p>ทุกการเดินทางคือการฝ่าฟันอุปสรรค เพื่อส่งต่อความหวัง ความอบอุ่น และรอยยิ้มให้แก่เด็กๆ บนดอย</p>
+                            <a href="travel1.4.html" class="content-btn">ชมรูปภาพ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+<section class="content-block">
+    <div class="container-narrow">
+        <div class="content-block-inner">
+            <div class="text-side">
+                <span class="tag">ประวัติของโครงการ</span>
+                <h2>แนะนำ <span class="highlight">โครงการ</span></h2>
+                <div class="underline-left"></div>
+                <p>โครงการ <strong>"เพื่อเด็กบนภู เพื่อนครูบนดอย"</strong> ก่อตั้งขึ้นในปี พ.ศ. 2556 ด้วยความตั้งใจที่ต้องการสร้างความเปลี่ยนแปลงให้กับเด็กๆและครูในพื้นที่ห่างไกลบนภูเขาการได้เห็นความลำบากของเด็กๆที่ขาดแคลนโอกาสทางการศึกษาและทรัพยากรที่จำเป็นทำให้เราตัดสินใจเริ่มต้นโครงการนี้ขึ้น</p>
+            </div>
+            <div class="image-side">
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/532207023_1041143688217106_3445168181158839615_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&oh=00_AfqQKzT7InY9HwINjY6gx1SuJrJCaKu13ZhsyYaEc5omiw&oe=69641D02" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/595818583_24866538726381353_6387406943671329597_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=f727a1&oh=00_AfrgOEE-qUNAW2z3m3md_pe4_oaL-KpdHj3UsggbS5QfZA&oe=69641889" alt="กิจกรรมโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/529979121_1041279808203494_5941718636747307252_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&oh=00_AfpHSai7exESCEwcRZeTHinc44M_V5_8ZD8Rd0DP5a1HzA&oe=696414B0" alt="กิจกรรมโครงการ">
+                    </div>
+                </div>
+                <p class="slider-hint">〈 เลื่อนเพื่อชมรูปภาพ 〉</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-block bg-soft"> <div class="container-narrow">
+        <div class="content-block-inner reverse">
+            <div class="text-side">
+                <span class="tag">บันทึกความทรงจำ</span>
+                <h2>จุดเริ่มต้นของ <span class="highlight">โครงการ</span></h2>
+                <div class="underline-left"></div>
+                <p>จากการเดินทางขึ้นดอยครั้งแรกในปี 2556 ได้สัมผัสถึงความยากลำบากของครูและเด็กๆทั้งการขาดอุปกรณ์การเรียนการเดินทางที่ยากลำบากและสภาพความเป็นอยู่ที่ขาดแคลนสิ่งเหล่านี้กลายเป็นแรงผลักดันให้เราเริ่มต้นโครงการเล็กๆที่เต็มไปด้วยหัวใจ</p>
+            </div>
+            <div class="image-side">
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/544818322_1061217359543072_9210805849974723160_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&oh=00_AfoPSWwofCLVSXXk-MlSsmNqzGjnoU-2GeDum8TnBa70FA&oe=696417A5" alt="จุดเริ่มต้นโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/544856253_1061217372876404_3405190968932495509_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&oh=00_AfrZYZzY70XxkjzrA7qEThQba5P77KOXTYWrYmPVQQoEvQ&oe=6963F4CF" alt="จุดเริ่มต้นโครงการ">
+                        <img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/537282540_1049755607355914_1023680926109696780_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&oh=00_Afq0KY1dHhKu6LUvJ5hYVs0bSkwiNBzIYUUGGp7398hzsA&oe=696403F3" alt="จุดเริ่มต้นโครงการ">
+                    </div>
+                </div>
+                <p class="slider-hint">〈 เลื่อนเพื่อชมรูปภาพ 〉</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-block">
+    <div class="container-narrow">
+        <div class="content-block-inner">
+            <div class="text-side">
+                <span class="tag">ทุกคนคือส่วนหนึ่งของการเปลี่ยนแปลง</span>
+                <h2>ก้าวไปข้างหน้า <span class="highlight">ด้วยกัน</span></h2>
+                <div class="underline-left"></div>
+                <p>ตลอดเวลากว่า 13 ปีที่ผ่านมาโครงการได้เติบโตขึ้นด้วยความร่วมมือจากผู้คนมากมายทั้งอาสาสมัครผู้สนับสนุนและชุมชนท้องถิ่นเรามุ่งมั่นที่จะสร้างความเปลี่ยนแปลงที่ยั่งยืนต่อไปเพื่อให้เด็กๆและชาวบ้านทุกคนมีอนาคตที่สดใสและเพื่อสนับสนุนครูที่ทุ่มเทอยู่เคียงข้างพวกเขาเสมอ</p>
+            </div>
+            <div class="image-side">
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <img src="https://via.placeholder.com/600x400?text=Future+Activity+1" alt="ก้าวไปข้างหน้า">
+                        <img src="https://via.placeholder.com/600x400?text=Future+Activity+2" alt="ก้าวไปข้างหน้า">
+                    </div>
+                </div>
+                <p class="slider-hint">〈 เลื่อนเพื่อชมรูปภาพ 〉</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper('.swiper', {
+        loop: true, // วนลูปกลับมาอันแรก
+        spaceBetween: 30, // ระยะห่างระหว่างการ์ด
+        centeredSlides: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        // ปรับแต่งการแสดงผลตามหน้าจอ
+        breakpoints: {
+          320: { slidesPerView: 1 },
+          1024: { slidesPerView: 1 }
+        }
+      });
+    </script>
+</body>
+</html>
+
+
+
+
+
+   <footer class="contact">
+    <div class="container footer-flex">
+        <div class="footer-col">
+            <h3>เมนู</h3>
+            <ul class="footer-links">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="#">บริจาคสิ่งของ</a></li>
+                <li><a href="#">เข้าร่วมกิจกรรม</a></li>
+                <li><a href="#" class="btn-login">เข้าสู่ระบบ</a></li>
+                <li><a href="#" class="user-link">ประวัติสมาชิก</a></li>
+                <li><a href="#" class="btn-logout">ออกจากระบบ</a></li>
+               
+            </ul>
+        </div>
+
+<div class="footer-col contact-info">
+    <h3>ติดต่อเรา</h3>
+    <div class="contact-row">
+        <i class="fa-solid fa-location-dot"></i>
+        <p>75/91 หมู่ 11 ถ. พหลโยธิน ต. คลองหนึ่ง <br> อ.คลองหลวง จ.ปทุมธานี 12120</p>
+    </div>
+    <div class="contact-row">
+        <i class="fa-solid fa-phone"></i>
+        <p><a href="tel:0949978287">094 997 8287</a></p>
+    </div>
+    <div class="contact-row">
+         <i class="fa-brands fa-facebook"></i> 
+        <p><a href="https://www.facebook.com/profile.php?id=100069644543492&locale=th_TH" target="_blank">โครงการเล็กๆเพื่อเด็กบนภูเพื่อนครูบนดอย</a></p>
+    </div>
+</div>
+</div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 เพื่อเด็กบนภู เพื่อนครูบนดอย. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
+
+
+
+...........................................................................................................................................
+
+

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โครงการเพื่อเด็กบนภู เพื่อนครูบนดอย</title>
+    <link rel="stylesheet" href="about2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+/* 1. Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    line-height: 1.6;
+    color: #222; /* สีตัวหนังสือหลักให้เข้มชัดเจน */
+    background-color: #fcfbf7; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 2. Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('img/bg.about.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff; /* ตัวหนังสือบน Hero เป็นสีขาว */
+    height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* 3. What We Do Section */
+.what-we-do {
+    padding: 80px 0;
+    background-color: #ecfffea0; /* พื้นหลังส่วนนี้เป็นสีขาวสะอาด */
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 2.2rem;
+    color: #1a3a16; /* สีเขียวเข้มแบบพรีเมียม */
+}
+
+.underline {
+    width: 80px;
+    height: 4px;
+    background: #f39c12;
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+/* Grid & Cards */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px; 
+}
+
+.card {
+    background: #ffffff; /* พื้นหลังกล่องเป็นสีขาว */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.card-content {
+    padding: 25px; 
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+}
+
+.card-content h3 {
+    color: #18534b; /* สีส้มหัวข้อให้ดูเด่น */
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.card-content p {
+    color: #444444; /* สีเทาเข้ม อ่านง่ายและนุ่มตา */
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* 4. Image Slider Setup */
+.image-side {
+    position: relative;
+    padding: 0;
+    background: #fafafa;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0;
+    padding-bottom: 0;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+
+.slider::-webkit-scrollbar {
+    height: 4px;
+}
+.slider::-webkit-scrollbar-thumb {
+    background: #1e5851;
+    border-radius: 10px;
+}
+
+.slider img {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    width: 100%;
+    height: 280px; 
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.slider-hint {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #888888;
+    margin: 5px 0;
+}
+
+/* 5. Content Blocks */
+.content-block {
+    display: flex;
+    align-items: center;
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px;
+}
+
+.content-block.reverse {
+    flex-direction: row-reverse;
+}
+
+.text-side {
+    flex: 1.2;
+}
+
+.text-side .tag {
+    background: #135c5dc4;
+    color: #ffffff;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.text-side h2 {
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+    color: #1a3a16;
+}
+
+.text-side p {
+    font-size: 1.15rem;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.content-block .image-side {
+    flex: 0.8;
+    background: transparent;
+    padding: 0;
+}
+
+.content-block .slider img {
+    height: 350px; 
+}
+
+/* 6. Footer */
+.contact {
+    background: #ffffff; /* พื้นหลัง Footer เขียวเข้มดูทางการ */
+    color: #000000;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.contact h2 {
+    margin-bottom: 25px;
+}
+
+.contact p {
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+/* 7. Responsive Design */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-block, .content-block.reverse {
+        flex-direction: column;
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .hero-section {
+        height: 35vh;
+    }
+}
+</style>
+<body>
+    <header class="hero-section">
+        <div class="container">
+            <h1>เกี่ยวกับเรา</h1>
+            <p>โครงการเพื่อเด็กบนภู เพื่อนครูบนดอย : ส่งต่อรอยยิ้มและโอกาสสู่ยอดดอย</p>
+        </div>
+    </header>
+
+    <section class="what-we-do">
+    <div class="container">
+        <div class="section-title">
+            <h2>เราทำอะไรบ้าง?</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>“แจกจ่ายสิ่งของบริจาค”</h3>
+                    <p>ส่งต่อสิ่งของจากน้ำใจของผู้บริจาคทุกท่าน ให้แก่ชาวบ้านในชุมชนบนดอย ทั้งสิ่งของอุปโภคและบริโภค</p>
+                </div>
+                <div class="image-side">
+                    <div class="slider">
+                        <img src="img/about.1.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.2.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.3.jpg" alt="กิจกรรมโครงการ"> 
+                        <img src="img/about.4.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.5.jpg" alt="กิจกรรมโครงการ">
+                    </div>
+                    <p class="slider-hint">← เลื่อนเพื่อดูรูป →</p>
+                </div>
+            </div>
+
+
+                <div class="card">
+                <div class="card-content">
+                    <h3>“กีฬาสร้างฝันดอยสูง”</h3>
+                    <p>งานกีฬาเล็กๆ เพื่อเสริมสร้างความสามัคคีในชุมชน และเปิดโอกาสให้เด็กๆ การแบ่งปัน และการทำงานเป็นทีม ผ่านการเล่นกีฬาอย่างสร้างสรรค์และเหมาะสมกับวัย</p>
+                </div>
+                <div class="image-side">
+                    <div class="slider">
+                        <img src="img/about.6.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.7.jpg" alt="กิจกรรมโครงการ"> 
+                        <img src="img/about.8.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.9.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.10.jpg" alt="กิจกรรมโครงการ">
+                    </div>
+                    <p class="slider-hint">← เลื่อนเพื่อดูรูป →</p>
+                </div>
+                </div>
+
+                <div class="card">
+                <div class="card-content">
+                    <h3>“นาทีทอง”</h3>
+                    <p>ช่วงเวลาแห่งการแบ่งปัน ผ่านการส่งต่อเสื้อผ้ามือสองจากน้ำใจของทุกท่าน สู่เด็กๆ และชาวบ้าน</p>
+                </div>
+                <div class="image-side">
+                    <div class="slider">
+                        <img src="img/about.11.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.12.jpg" alt="กิจกรรมโครงการ"> 
+                        <img src="img/about.13.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.14.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.15.jpg" alt="กิจกรรมโครงการ">
+                    </div>
+                    <p class="slider-hint">← เลื่อนเพื่อดูรูป →</p>
+                </div>
+                </div>
+
+                <div class="card">
+                <div class="card-content">
+                    <h3>“เกมมหาสนุก” </h3>
+                    <p>การเล่นเกมนันทนาการกับเด็กๆ และชาวบ้าน เพื่อสร้างรอยยิ้มและความสนุกสนานร่วมกัน</p>
+                </div>
+                <div class="image-side">
+                    <div class="slider">
+                        <img src="img/about.16.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.17.jpg" alt="กิจกรรมโครงการ"> 
+                        <img src="img/about.18.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.19.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.20.jpg" alt="กิจกรรมโครงการ">
+                    </div>
+                    <p class="slider-hint">← เลื่อนเพื่อดูรูป →</p>
+                </div>
+                </div>
+
+                <div class="card">
+                <div class="card-content">
+                    <h3>“งานวันพ่อแห่งชาติและวันแม่แห่งชาติ”</h3>
+                    <p>เพื่อแสดงความจงรักภักดีและน้อมรำลึกถึงพระมหากรุณาธิคุณของพระบาทสมเด็จพระเจ้าอยู่หัว และสมเด็จพระนางเจ้าฯ พระบรมราชินีนาถ พร้อมทั้งส่งเสริมความกตัญญูกตเวทีในชุมชน</p>
+                </div>
+                <div class="image-side">
+                    <div class="slider">
+                        <img src="img/about.21.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.22.jpg" alt="กิจกรรมโครงการ"> 
+                        <img src="img/about.23.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.24.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.25.jpg" alt="กิจกรรมโครงการ">
+                    </div>
+                    <p class="slider-hint">← เลื่อนเพื่อดูรูป →</p>
+                </div>
+                </div>
+
+                <div class="card">
+                <div class="card-content">
+                    <h3>“ครัวมิชลินบนยอดดอย”</h3>
+                    <p> กิจกรรมทำอาหารเลี้ยงชุมชนเพื่อให้เด็กๆ และชาวบ้านได้ลิ้มรสอาหารแสนอร่อยที่บางคนอาจไม่เคยได้ชิมทุกเมนูคัดสรรจากเมืองกรุงสู่ยอดดอย</p>
+                </div>
+                <div class="image-side">
+                    <div class="slider">
+                        <img src="img/about.26.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.27.jpg" alt="กิจกรรมโครงการ"> 
+                        <img src="img/about.28.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.29.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.30.jpg" alt="กิจกรรมโครงการ">
+                    </div>
+                    <p class="slider-hint">← เลื่อนเพื่อดูรูป →</p>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="content-block">
+            <div class="text-side">
+                <span class="tag">Established 2556</span>
+                <h2>แนะนำโครงการ</h2>
+                <p>โครงการ <strong>"เพื่อเด็กบนภู เพื่อนครูบนดอย"</strong> ก่อตั้งขึ้นในปี พ.ศ. 2556 ด้วยความตั้งใจที่ต้องการสร้างความเปลี่ยนแปลงให้กับเด็กๆ และครูในพื้นที่ห่างไกลบนภูเขา การได้เห็นความลำบากของเด็กๆ ที่ขาดแคลนโอกาสทางการศึกษาและทรัพยากรที่จำเป็น ทำให้เราตัดสินใจเริ่มต้นโครงการนี้ขึ้น</p>
+            </div>
+            <div class="image-side">
+                <div class="slider">
+                        <img src="img/about.31.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.32.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.33.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.34.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.35.jpg" alt="กิจกรรมโครงการ">
+                </div>
+                <p class="slider-hint">← เลื่อนซ้าย-ขวาเพื่อดูรูป →</p>
+            </div>
+        </section>
+
+        <section class="content-block reverse">
+            <div class="text-side">
+                <h2>จุดเริ่มต้นของโครงการ</h2>
+                <p>จากการเดินทางขึ้นดอยครั้งแรกในปี 2556 ได้สัมผัสถึงความยากลำบากของครูและเด็กๆ ทั้งการขาดอุปกรณ์การเรียน การเดินทางที่ยากลำบาก และสภาพความเป็นอยู่ที่ขาดแคลน สิ่งเหล่านี้กลายเป็นแรงผลักดันให้เราเริ่มต้นโครงการเล็กๆ ที่เต็มไปด้วยหัวใจ</p>
+            </div>
+            <div class="image-side">
+                <div class="slider">
+                        <img src="img/about.36.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.37.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.38.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.39.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.40.jpg" alt="กิจกรรมโครงการ">
+                </div>
+                <p class="slider-hint">← เลื่อนซ้าย-ขวาเพื่อดูรูป →</p>
+            </div>
+        </section>
+
+        <section class="content-block">
+            <div class="text-side">
+                <h2>ก้าวไปข้างหน้าด้วยกัน</h2>
+                <p>ตลอดเวลากว่า 13 ปีที่ผ่านมา โครงการได้เติบโตขึ้นด้วยความร่วมมือจากผู้คนมากมาย ทั้งอาสาสมัคร ผู้สนับสนุนและชุมชนท้องถิ่นเรามุ่งมั่นที่จะสร้างความเปลี่ยนแปลงที่ยั่งยืนต่อไปเพื่อให้เด็กๆและชาวบ้านทุกคนมีอนาคตที่สดใสและเพื่อสนับสนุนครูที่ทุ่มเทอยู่เคียงข้างพวกเขาเสมอ</p>
+            </div>
+            <div class="image-side">
+                <div class="slider">
+                        <img src="img/about.41.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.42.jpg" alt="กิจกรรมโครงการ"> 
+                        <img src="img/about.43.jpg" alt="กิจกรรมโครงการ">
+                        <img src="img/about.44.jpg" alt="กิจกรรมโครงการ">
+                </div>
+                <p class="slider-hint">← เลื่อนซ้าย-ขวาเพื่อดูรูป →</p>
+            </div>
+        </section>
+    <footer class="contact">
+        <div class="container">
+            <h2>ติดต่อสอบถาม</h2>
+            <p>ที่อยู่: โครงการเพื่อเด็กบนภู เพื่อนครูบนดอย (75/91 หมู่ 11 ถ. พหลโยธิน ต. คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี 12120)</p>
+            <p>โทร: 094 997 8287 คุณมานพ จิตตธร  | Facebook: โครงการเล็กๆเพื่อเด็กบนภูเพื่อนครูบนดอย</p>
+        </div>
+    </footer>
+
+</body>
+</html>
